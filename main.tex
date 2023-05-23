@@ -1,14 +1,385 @@
-\documentclass{article}
-\usepackage{graphicx} % Required for inserting images
+\documentclass[aspectratio=169,11pt]{beamer}
 
-\title{Beamer template}
-\author{Chao Liu}
-\date{May 2023}
+\setbeamertemplate{navigation symbols}{}
+\useinnertheme[shadow=true]{rounded}
+\useoutertheme{infolines}
+\setbeamertemplate{footline}[frame number]
+\definecolor{purpleheart}{RGB}{078, 042, 132}
+\setbeamercolor{title}{fg=white,bg=purpleheart}
+\setbeamercolor{palette tertiary}{fg=white,bg=purpleheart}
+\setbeamercolor{frametitle}{fg=purpleheart,bg=gray!0}
+\setbeamercolor{button}{bg=purpleheart}
+\setbeamertemplate{itemize item}[circle]
+\setbeamertemplate{enumerate item}[default]
+\setbeamertemplate{itemize subitem}[triangle]
+\setbeamercolor{itemize item}{fg=purpleheart}
+\setbeamercolor{itemize subitem}{fg=purpleheart}
+\setbeamercolor{enumerate item}{fg=purpleheart}
+\setbeamercolor{part title}{fg=white,bg=purpleheart}
+\setbeamertemplate{section page}
+{
+    \begin{centering}
+    \begin{beamercolorbox}[wd=\paperwidth,sep=12pt,center]{part title}
+    \usebeamerfont{section title}\insertsection\par
+    \end{beamercolorbox}
+    \end{centering}
+}
+\setbeamertemplate{title page}[default][rounded=true]
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsmath} 
+\usepackage{bbm}
+\usepackage{array}
+\usepackage{hyperref}
+\usepackage{appendixnumberbeamer}
+\newcommand{\beginbackup}{
+   \newcounter{framenumbervorappendix}
+   \setcounter{framenumbervorappendix}{\value{framenumber}}
+   \setbeamertemplate{footline}
+   {
+     \leavevmode%
+     \hline
+     box{%
+       \begin{beamercolorbox}[wd=\paperwidth,ht=2.25ex,dp=1ex,right]{footlinecolor}%
+%         \insertframenumber  \hspace*{2ex} 
+       \end{beamercolorbox}}%
+     \vskip0pt%
+   }
+ }
+\newcommand{\backupend}{
+   \addtocounter{framenumbervorappendix}{-\value{framenumber}}
+   \addtocounter{framenumber}{\value{framenumbervorappendix}} 
+}
+
 
 \begin{document}
+\title[Beamer]{A Beamer Template}
+\author[Name]{\textbf{Your Name} \\Your Institution}
 
-\maketitle
+\begin{frame}[plain,noframenumbering]
+\titlepage
+\end{frame}
 
 \section{Introduction}
+\begin{frame}{Motivation}
+\begin{itemize}
+    \item Getting a mortgage is an important household financial decision.
+    \begin{itemize}
+        \item Loan size: \$9.56 trillion in Dec. 2019 (68\% of total household debt)
+        \item Loan term: 7-10 years (the average lifespan)
+        \item Prevalence: 42\% of families held debt secured by a primary residence in 2019
+    \end{itemize}
+    \pause
+    \item Getting a mortgage is a complicated transaction.
+    \begin{itemize}
+        \item Lengthy process: conventional-57 days and FHA-62 days in 2021
+        \item Hard to understand: mortgage disclosures (11th grade) vs. reading ability (8th grade)
+    \end{itemize}
+    \pause 
+    \item Lenders exploit borrowers’ confusion and mislead them.\\ {\footnotesize \color{darkgray} (Agarwal et al., 14; Agarwal, Ben-David \& Yao, 17; Di Maggio, Kermani \& Korgaonkar, 19)}
+    \pause
+    \item \textbf{Borrowers with limited English proficiency (LEP) will encounter more barriers.}
+\end{itemize}
+\end{frame}
 
+\begin{frame}{What is LEP}
+\begin{itemize}
+    \item \textbf{Definition}: speaking English less than ``very well''
+    \item \textbf{Size}: 25 million LEP people in 2019 (8\% of the total population)
+    \item<2-> \textbf{Primary language}: Spanish, Chinese, Korean, Vietnamese, Tagalog
+\end{itemize}
+\begin{figure}
+\centering
+\includegraphics<1>[height=52.5mm]{chai.png}%
+\includegraphics<2->[height=52.5mm]{lepshare_hispanic.png}%
+\end{figure}    
+\end{frame}
+
+\begin{frame}{This Paper}
+\textbf{Research Question}: 
+
+How language frictions affect LEP borrowers in the mortgage market on their
+\begin{itemize}
+    \item application experiences
+    \item borrowing costs
+    \item credit access
+\end{itemize}
+\pause
+
+\end{frame}
+
+\begin{frame}{Main Results}
+\begin{itemize}
+    \item Definition: speaking English less than ``very well''
+    \item Size: 25 million LEP people in 2019 (8\% of the total population)
+    \item Primary language: Spanish, Chinese, Korean, Vietnamese, Tagalog
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Related Literature}
+\begin{itemize}
+    \item Price dispersion in consumer finance markets
+    \begin{itemize}
+        \item Various markets: {\footnotesize \color{darkgray}Gurun et al., 16; Argyle et al., 20; Stango \& Zinman, 16}
+        \item 
+    \end{itemize}
+    \item Real effects of government intervention in credit markets
+    \begin{itemize}
+        \item Earnings: {\footnotesize \color{darkgray} McManus et al., 83; Tainer, 88; Chiswick, 91; Zavodny, 00; Dustmann \& Fabbri, 03}
+        \item Marriage, fertility, and health: {\footnotesize \color{darkgray}Bleakley \& Chin, 10; Guven \& Islam, 15}
+    \end{itemize}
+    \item Effects of English ability
+    \begin{itemize}
+        \item Earnings: {\footnotesize \color{darkgray} McManus et al., 83; Tainer, 88; Chiswick, 91; Zavodny, 00; Dustmann \& Fabbri, 03}
+        \item Marriage, fertility, and health: {\footnotesize \color{darkgray}Bleakley \& Chin, 10; Guven \& Islam, 15}
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Outline for Today}
+\begin{columns}[T] % align columns
+\begin{column}{.65\textwidth}
+    \begin{enumerate}
+        \item Data
+        \item LEP borrowers in the mortgage market
+        \item Policy shock: FHFA Language Access Plan
+        \item Empirical strategy: triple-difference
+        \item Results
+        \begin{itemize}
+            \item NSMO
+            \item Aggregate Data
+            \item $\text{HMDA}^+$
+        \end{itemize}
+        \item Conclusion
+    \end{enumerate}
+\end{column}
+\begin{column}{.35\textwidth}
+    \resizebox{\linewidth}{!}{
+      \includegraphics{fig/chai.png}
+    }
+\end{column}
+\end{columns}
+\end{frame}
+
+
+\section{Data}
+\begin{frame}[plain,noframenumbering]
+\sectionpage
+\end{frame}
+
+\begin{frame}{Data Sources}
+\begin{itemize}
+    \item \textbf{NSMO}
+    \item \textbf{HMDA}
+    \item \textbf{GSE}
+    \item 
+\end{itemize}    
+\end{frame}
+
+\section{Descriptive Analysis}
+\begin{frame}[plain,noframenumbering]
+\sectionpage
+\end{frame}
+
+\begin{frame}{LEP Status in NSMO}
+\begin{columns}[T] % align columns
+\begin{column}{.55\textwidth}
+    {
+      \includegraphics<1>[height=70mm,width=72mm]{nsmo_lep.jpg}%
+      \includegraphics<2>[height=60mm,width=88mm]{share_year.pdf}%
+      \includegraphics<3>[height=60mm,width=88mm]{education.pdf}%
+      \includegraphics<4>[height=60mm,width=88mm]{income.pdf}%
+      \includegraphics<5>[height=60mm,width=88mm]{fico.pdf}%
+    }
+\end{column}
+\begin{column}{.45\textwidth}
+    \begin{itemize}
+        \item About 10\% are LEP borrowers
+        \item Servicers in Dallas averaged having 15\% of LEP borrowers as customer
+        \pause
+        \item Display an increasing trend
+        \pause 
+        \item Demographic differences as expected
+        \begin{itemize}
+            \item Education
+            \pause 
+            \item Income
+            \pause
+            \item FICO score
+        \end{itemize}
+    \end{itemize}
+\end{column}
+\end{columns}    
+\end{frame}
+
+\begin{frame}{Differences in Mortgage Application Experiences}
+\vspace{-15.5pt}
+\begin{equation} \label{eq:ols}
+    y_{it} = \alpha + \textcolor{red}{\beta LEP_i} + \gamma X_{i} + \delta_t + \epsilon_{it}
+\end{equation}
+\pause
+\centerline{
+\scalebox{0.85}{
+\begin{tabular}{l<{\onslide<2->}c<{\onslide<3->}c<{\onslide<4->}c<{\onslide<5->}c<{\onslide<6->}c<{\onslide}} \toprule
+Dependent variable & \multicolumn{5}{c}{$\mathbbm{1}$(concern about qualifying for a mortgage)}\\ 
+ & (1) & (2) & (3) & (4) & (5)\\
+ \midrule
+LEP & 0.102*** & 0.100*** & 0.064*** & 0.058*** & 0.059*** \\
+& (0.009) & (0.009) & (0.008) & (0.008) & (0.008) \\
+ \midrule
+ D.V. mean (LEP) & \multicolumn{5}{c}{0.243}   \\\midrule
+Observations & 37,720 & 37,720 & 37,720 & 37,720 & 37,720 \\
+Quarter FEs &  & \checkmark & \checkmark & \checkmark & \checkmark \\
+Tract type FEs &  & \checkmark & \checkmark & \checkmark & \checkmark \\
+Race and ethnicity &  &  & \checkmark & \checkmark & \checkmark \\
+Gender &  &  & \checkmark & \checkmark & \checkmark \\
+Education &  &  & \checkmark & \checkmark & \checkmark \\
+Additional demo. controls &  &  & \checkmark & \checkmark & \checkmark \\
+Risk FEs (FICO $\times$ LTV) &  &  &  & \checkmark & \checkmark \\
+Loan controls &  &  &  &  & \checkmark \\
+\bottomrule
+\end{tabular}
+}}
+\end{frame}
+
+\begin{frame}{Differences in Mortgage Application Perceptions and Experiences}
+\begin{center}
+\textbf{When you began the process of getting this mortgage, \\ how familiar were you with each of the following?}   
+\end{center}
+\begin{columns}[T] % align columns
+\begin{column}{.5\textwidth}
+    \resizebox{\linewidth}{!}{
+      \includegraphics{beforeknow_raw.png}
+    }
+\end{column}
+\begin{column}{.5\textwidth}
+    \resizebox{\linewidth}{!}{
+      \includegraphics{beforeknow_reg.png}
+    }
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Differences in Mortgage Application Perceptions and Experiences}
+\begin{center}
+\textbf{\footnotesize When you began the process of getting this mortgage, how familiar were you with each of the following?}   
+\end{center}
+\begin{figure}
+\centering
+\includegraphics[height=60mm]{beforeknow_reg.png}
+\end{figure} 
+\end{frame}
+
+\begin{frame}[label=search]{Differences in Search Behavior}
+\centerline{\scalebox{0.85}{
+\begin{tabular}{lccccc} 
+\toprule
+Dependent variable & \multicolumn{2}{c}{Number of lenders} & \multicolumn{3}{c}{Why apply to multiple lenders?}\\ \cmidrule[0.6pt](lr){2-3} \cmidrule[0.6pt](lr){4-6}
+ & \begin{tabular}[c]{@{}c@{}}seriously\\ considered\end{tabular} & applied to & \begin{tabular}[c]{@{}c@{}}find better \\loan terms\end{tabular} & \begin{tabular}[c]{@{}c@{}}concern over\\ qualification\end{tabular} & \begin{tabular}[c]{@{}c@{}}learn\\ information\end{tabular} \\ 
+ & (1) & (2) & (3) & (4) & (5) \\
+\midrule
+LEP & -0.065*** & -0.024** & 0.016 & 0.105*** & 0.075*** \\
+ & (0.015) & (0.012) & (0.017) & (0.020) & (0.021) \\
+\midrule
+ LEP mean & 1.643 & 1.296 &  0.821 & 0.407 & 0.425  \\
+ Non-LEP mean & 1.719 & 1.303 & 0.822 & 0.270 & 0.319 \\ \midrule
+Observations & 37,720 & 37,720 & 8,569 & 8,569 & 8,569 \\
+Quarter FEs & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
+Tract type FEs & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
+Demographic controls& \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
+Risk FEs & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
+Loan controls & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
+\bottomrule
+\end{tabular}
+}}
+\hfill \hyperlink{search_demo}{\beamergotobutton{Demographic coefficients}}
+\end{frame}
+
+\section{Policy Shock}
+\begin{frame}[plain,noframenumbering]
+\sectionpage
+\end{frame}
+
+\begin{frame}{FHFA Language Access Plan}
+\begin{figure}
+\centering
+\includegraphics[height=50mm]{policyshock.png}
+\end{figure}       
+\end{frame}
+
+\begin{frame}{Google Trends}
+\begin{figure}
+\centering
+\includegraphics[height=68mm]{google_trends.png}
+\end{figure}       
+\end{frame}
+
+\section{Empirical Strategy}
+\begin{frame}[plain,noframenumbering]
+\sectionpage
+\end{frame}
+
+\begin{frame}{Triple-Difference Illustration}
+\begin{figure}
+\centering
+\includegraphics[height=75mm]{redopaperwork_ddd.png}
+\end{figure}          
+\end{frame}
+
+\begin{frame}{Triple-Difference Specification}
+\begin{multline} \label{eq:ddd}
+    y_{it} = \alpha + \beta_0 LEP_i + \beta_1 Hispanic_i + \beta_2 LEP_i \times Hispanic_i + \beta_3 LEP_i \times Post_t \\+ \beta_4 Hispanic_i \times Post_t + \textcolor{red}{\beta_5 LEP_i \times Hispanic_i \times Post_t} + \gamma X_{it} + \delta_t + \epsilon_{it}.    
+\end{multline}    
+\begin{itemize}
+    \item Drop Asian borrowers (Chinese translations added in 2019)
+\end{itemize}
+\end{frame}
+
+\section{Empirical Results}
+\begin{frame}[plain,noframenumbering]
+\sectionpage
+\end{frame}
+
+\begin{frame}{Results Using NSMO}
+    
+\end{frame}
+
+\section{Conclusion}
+\begin{frame}{Conclusion}
+    
+\end{frame}
+
+\section{Thanks!}
+\begin{frame}[plain,noframenumbering]
+\sectionpage
+\end{frame}
+
+\section{Appendix}
+\appendix
+\begin{frame}[label=search_demo]{Differences in Search Behavior}
+\centerline{\scalebox{0.85}{
+\begin{tabular}{lccccc} 
+\toprule
+Dependent variable & \multicolumn{2}{c}{Number of lenders} & \multicolumn{3}{c}{Why apply to multiple lenders?}\\ \cmidrule[0.6pt](lr){2-3} \cmidrule[0.6pt](lr){4-6}
+ & \begin{tabular}[c]{@{}c@{}}seriously\\ considered\end{tabular} & applied to & \begin{tabular}[c]{@{}c@{}}find better \\loan terms\end{tabular} & \begin{tabular}[c]{@{}c@{}}concern over\\ qualification\end{tabular} & \begin{tabular}[c]{@{}c@{}}learn\\ information\end{tabular} \\ 
+ & (1) & (2) & (3) & (4) & (5) \\
+\midrule
+LEP & -0.065*** & -0.024** & 0.016 & 0.105*** & 0.075*** \\
+ & (0.015) & (0.012) & (0.017) & (0.020) & (0.021) \\
+\midrule
+ LEP mean & 1.643 & 1.296 &  0.821 & 0.407 & 0.425  \\
+ Non-LEP mean & 1.719 & 1.303 & 0.822 & 0.270 & 0.319 \\ \midrule
+Observations & 37,720 & 37,720 & 8,569 & 8,569 & 8,569 \\
+Quarter FEs & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
+Tract type FEs & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
+Demographic controls& \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
+Risk FEs & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
+Loan controls & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
+\bottomrule
+\end{tabular}
+}}
+\hfill \hyperlink{search}{\beamergotobutton{Back}}    
+\end{frame}
 \end{document}
