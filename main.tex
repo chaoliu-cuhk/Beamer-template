@@ -35,6 +35,7 @@
 \usepackage{hyperref}
 \usepackage{appendixnumberbeamer}
 \usepackage{verbatim}
+\newtheorem{assumption}{Assumption}
 \newcommand{\beginbackup}{
    \newcounter{framenumbervorappendix}
    \setcounter{framenumbervorappendix}{\value{framenumber}}
@@ -53,9 +54,6 @@
    \addtocounter{framenumbervorappendix}{-\value{framenumber}}
    \addtocounter{framenumber}{\value{framenumbervorappendix}} 
 }
-\graphicspath{{fig/}}
-\newcommand{\tabitem}{%
-  \usebeamertemplate{itemize item}\hspace*{\labelsep}}
 
 \begin{document}
 \title[Beamer]{A Beamer Template}
@@ -93,31 +91,46 @@
     \end{itemize}
     \begin{figure}
         \centering
-        \includegraphics<1>[height=52.5mm]{lepshare.png}%
-        \includegraphics<2->[height=52.5mm]{lepshare_hispanic.png}%
+        \includegraphics<1>[height=0.7\textheight]{fig/scatter.pdf}%
+        \includegraphics<2->[height=0.7\textheight]{fig/hist.pdf}%
     \end{figure}    
 \end{frame}
 
 \begin{frame}{Vertical Style}
-    \begin{itemize}
-        \item Show the first bullet point and the first figure.
-        \item<2-> Add one bullet point and show the second figure in the same place.
-    \end{itemize}
-    \begin{figure}
-        \centering
-        \includegraphics<1>[height=52.5mm]{lepshare.png}%
-        \includegraphics<2->[height=52.5mm]{lepshare_hispanic.png}%
-    \end{figure}    
+    \begin{columns}[T] % align columns
+        \begin{column}{.55\textwidth}
+            \begin{center}
+                {
+                \includegraphics<1>[width=\textwidth]{fig/scatter.pdf}%
+                \includegraphics<2>[width=\textwidth]{fig/hist.pdf}%
+                }
+            \end{center}
+        \end{column}
+        \begin{column}{.45\textwidth}
+            \begin{itemize}
+                \item<1> Result 1
+                \item<2> Result 2 (no Result 1)
+            \end{itemize}
+        \end{column}
+    \end{columns}    
 \end{frame}
 
 \begin{frame}{Outline for Today}
-  \begin{enumerate}
-    \item Data
-    \item Theory
-    \item Empirical Strategy
-    \item Results
-    \item Conclusion
-  \end{enumerate}
+    \begin{columns}[c] % align columns
+        \begin{column}{.45\textwidth}
+            \begin{enumerate}
+                \item Data
+                \item Empirical Strategy
+                \item Results
+                \item Conclusion
+            \end{enumerate}
+        \end{column}
+        \begin{column}{.45\textwidth}
+            \begin{center}
+                \includegraphics[width=\textwidth]{fig/scatter.pdf}%
+            \end{center}
+        \end{column}
+    \end{columns}    
 \end{frame}
 
 \section{Data}
@@ -132,10 +145,6 @@
     
 \end{frame}
 
-\section{Theory}
-\begin{frame}[plain,noframenumbering]
-\sectionpage
-\end{frame}
 
 \section{Empirical Strategy}
 \begin{frame}[plain,noframenumbering]
@@ -158,15 +167,35 @@
 \end{frame}
 
 \begin{frame}{Single Plot}
-    
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.8\textwidth]{fig/single.pdf}
+    \end{figure}
 \end{frame}
 
 \begin{frame}{Two Plots}
-    
+    \begin{figure}
+        \includegraphics[width=0.495\textwidth, height=0.7\textheight]{fig/single.pdf}
+        \hfill
+        \includegraphics[width=0.495\textwidth, height=0.7\textheight]{fig/single.pdf}
+    \end{figure}
 \end{frame}
 
 \begin{frame}{Show Table Rows Sequentially}
-    
+    \centerline{
+        \scalebox{0.95}{
+            \begin{tabular}{lcccc }
+                \toprule
+                Competitor Name & Swim & Cycle & Run & Total \\
+                \midrule
+                John T & 13:04 & 24:15 & 18:34 & 55:53 \onslide<2-> \\ 
+                Norman P & 8:00 & 22:45 & 23:02 & 53:47 \onslide<3->\\
+                Alex K & 14:00 & 28:00 & n/a & n/a \onslide<4->\\
+                Sarah H & 9:22 & 21:10 & 24:03 & 54:35 \\
+                \bottomrule
+            \end{tabular}
+        }
+    }
 \end{frame}
 
 \begin{frame}{Show Table Columns Sequentially}
